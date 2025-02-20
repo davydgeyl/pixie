@@ -89,10 +89,10 @@ var outputURL: URL?
 if CommandLine.arguments.count == 4 {
     outputURL = NSURL(fileURLWithPath:CommandLine.arguments[3]) as URL
 } else {
-    let url = NSURL(fileURLWithPath: path1)
-    let file1Name = url.lastPathComponent
+    let url = NSURL(fileURLWithPath: path2)
+    let fileName = url.lastPathComponent
     if let pathExtension = url.pathExtension,
-        let file1NameNoExtension = file1Name?.replacingOccurrences(of: pathExtension, with: "").replacingOccurrences(of: ".", with: "") {
+        let file1NameNoExtension = fileName?.replacingOccurrences(of: pathExtension, with: "").replacingOccurrences(of: ".", with: "") {
 
         let outputFileName = file1NameNoExtension + "_diff"
 
