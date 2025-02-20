@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD1060792CC89FE70093E7BA /* pixie in CopyFiles */ = {isa = PBXBuildFile; fileRef = ADC3601C2CC89CB800DE27C3 /* pixie */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AD49E0F82CE57C2F00F6486D /* pixie in CopyFiles */ = {isa = PBXBuildFile; fileRef = ADC3601C2CC89CB800DE27C3 /* pixie */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		ADC360202CC89CB800DE27C3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC3601F2CC89CB800DE27C3 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -15,10 +15,10 @@
 		ADC3601A2CC89CB800DE27C3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = usr/local/bin;
+			dstPath = /usr/local/bin;
 			dstSubfolderSpec = 0;
 			files = (
-				AD1060792CC89FE70093E7BA /* pixie in CopyFiles */,
+				AD49E0F82CE57C2F00F6486D /* pixie in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};

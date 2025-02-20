@@ -5,6 +5,7 @@
 //  Created by Davyd Geyl.
 //
 
+import Foundation
 import AppKit
 import CoreImage
 import CoreImage.CIFilterBuiltins
@@ -40,6 +41,26 @@ func computeImageDifference(path1: String, path2: String) -> CGImage? {
                                              from: outputImage.extent) else { return nil }
     return cgImage
 }
+
+func shell(launchPath: String, arguments: [String]) -> String {
+    let process = Process()
+    process.launchPath = launchPath
+    process.arguments = arguments
+
+    let pipe = Pipe()
+    process.standardOutput = pipe
+    process.launch()
+
+    let output_from_command = String(data: pipe.fileHandleForReading.readDataToEndOfFile(), encoding: String.Encoding.utf8)!
+
+    // remove the trailing new-line char
+    if output_from_command.count > 0 {
+        let lastIndex = output_from_command.index(before: output_from_command.endIndex)
+        return String(output_from_command[output_from_command.startIndex ..< lastIndex])
+    }
+    return output_from_command
+}
+
 
 extension CGImage {
     func savePNG(at url: URL) {
@@ -85,6 +106,7 @@ checkFileExistance(at: path2)
 if let image = computeImageDifference(path1: path1, path2: path2),
    let outputURL = outputURL {
     image.savePNG(at: outputURL)
+    let _ = shell(launchPath: "/usr/bin/open", arguments: [outputURL.path])
     exit(0)
 }
 
